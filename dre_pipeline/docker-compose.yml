@@ -1,0 +1,86 @@
+# =============================================================================
+# DRE Analytics 2025 - Pipeline ETL
+# Docker Compose - Configuração do PostgreSQL
+# =============================================================================
+# 
+# Este arquivo define a infraestrutura do projeto usando Docker Compose.
+#
+# COMANDOS PRINCIPAIS:
+#   Iniciar:    docker compose up -d
+#   Parar:      docker compose down
+#   Ver logs:   docker compose logs -f
+#   Reiniciar:  docker compose restart
+#
+# =============================================================================
+
+services:
+  # ---------------------------------------------------------------------------
+  # PostgreSQL - Banco de dados principal
+  # ---------------------------------------------------------------------------
+  postgres:
+    image: postgres:15-alpine
+    container_name: dre-analytics-db
+    restart: unless-stopped
+    
+    environment:
+      POSTGRES_PASSWORD: postgres123
+      POSTGRES_USER: postgres
+      POSTGRES_DB: dre_analytics
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C"
+    
+    ports:
+      - "5432:5432"
+    
+    volumes:
+      # Volume para persistência de dados
+      - postgres_data:/var/lib/postgresql/data
+      
+      # Scripts SQL executados na primeira inicialização
+      - ./sql/01_create_schemas.sql:/docker-entrypoint-initdb.d/01_create_schemas.sql:ro
+      - ./sql/02_create_raw_tables.sql:/docker-entrypoint-initdb.d/02_create_raw_tables.sql:ro
+      - ./sql/03_create_stg_tables.sql:/docker-entrypoint-initdb.d/03_create_stg_tables.sql:ro
+      - ./sql/04_create_dw_tables.sql:/docker-entrypoint-initdb.d/04_create_dw_tables.sql:ro
+      - ./sql/05_create_audit_tables.sql:/docker-entrypoint-initdb.d/05_create_audit_tables.sql:ro
+    
+    shm_size: 256mb
+    
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d dre_analytics"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    
+    networks:
+      - dre-analytics-network
+
+  # ---------------------------------------------------------------------------
+  # Adminer - Interface web para gerenciar o banco
+  # ---------------------------------------------------------------------------
+  adminer:
+    image: adminer:latest
+    container_name: dre-analytics-adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - dre-analytics-network
+
+# =============================================================================
+# VOLUMES
+# =============================================================================
+volumes:
+  postgres_data:
+    driver: local
+
+# =============================================================================
+# NETWORKS
+# =============================================================================
+networks:
+  dre-analytics-network:
+    driver: bridge

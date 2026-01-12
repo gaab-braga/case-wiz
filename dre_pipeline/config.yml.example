@@ -1,0 +1,57 @@
+# =============================================================================
+# DRE Analytics 2025 - Configuração (Exemplo)
+# =============================================================================
+# Copie este arquivo para config.yml e ajuste conforme necessário
+# O config.yml está no .gitignore para proteger credenciais
+
+# Configuração do banco de dados PostgreSQL
+database:
+  host: localhost
+  port: 5432
+  database: dre_db
+  user: dre_user
+  password: dre_pass
+
+# Caminhos dos arquivos de dados
+paths:
+  # Arquivo Excel de origem (ajuste o caminho conforme seu ambiente)
+  source_excel: "../01_dados_originais/dados_case_pbi.xlsx"
+  # Diretórios do projeto
+  logs_dir: "logs"
+  data_dir: "data"
+  sql_dir: "sql"
+
+# Configuração do ETL
+etl:
+  # Nome das abas no Excel
+  sheets:
+    receita_realizado: "Receita_Realizado"
+    receita_orcado: "Receita_Orç"
+    despesas_realizado: "Despesas_Realizado"
+    despesas_orcado: "Despesas_Orç"
+    modelo_dre: "Modelo DRE"
+    aliquotas: "Aliquotas"
+  
+  # Configurações de carga
+  batch_size: 10000
+  truncate_before_load: true
+
+# Configuração de logging
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_prefix: "etl"
+
+# Thresholds de Data Quality (valores esperados da EDA)
+# Estes valores são usados para validar a integridade dos dados
+data_quality:
+  # Tolerância percentual para comparações numéricas
+  tolerance_pct: 0.01  # 1%
+  
+  # Valores esperados (atualize conforme sua análise)
+  expected:
+    receita_bruta_realizado: 67629718.14
+    receita_bruta_orcado: 68369172.32
+    despesas_realizado: -41613267.98
+    despesas_orcado: -48774529.00
+    lucro_liquido: 18572919.69

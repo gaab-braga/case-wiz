@@ -1,0 +1,14 @@
+{
+    "servers": {
+        "dashboard": {
+            "type": "stdio",
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-filesystem",
+                "C:\\Dashboard_DRE_2025"
+            ]
+        }
+    },
+    "inputs": []
+}

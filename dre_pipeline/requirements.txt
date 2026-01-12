@@ -1,0 +1,31 @@
+# =============================================================================
+# DRE Analytics 2025 - Requirements
+# =============================================================================
+
+# Core Data Processing
+pandas>=2.2.0
+numpy>=1.26.0
+openpyxl>=3.1.0  # Excel support
+
+# Database
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.0  # PostgreSQL driver
+
+# Configuration
+pyyaml>=6.0.0
+
+# API
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.5.0
+python-multipart>=0.0.6  # Para upload de arquivos
+
+# Logging
+python-json-logger>=2.0.0
+
+# Development (optional)
+pytest>=8.0.0
+pytest-cov>=4.1.0
+black>=24.0.0
+isort>=5.13.0
+mypy>=1.8.0

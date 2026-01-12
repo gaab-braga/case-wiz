@@ -1,0 +1,67 @@
+# =============================================================================
+# DRE Analytics 2025 - .gitignore
+# =============================================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Ambientes virtuais
+venv/
+env/
+ENV/
+.venv/
+.env
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+logs/
+*.log
+
+# Dados sensíveis e configuração local
+config.yml
+*.local.yml
+
+# Dados originais (manter apenas CSVs processados)
+data/raw/
+*.xlsx
+*.xls
+
+# Docker volumes
+postgres_data/
+
+# Arquivos temporários
+.tmp/
+temp/
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db

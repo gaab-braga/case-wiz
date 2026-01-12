@@ -1,0 +1,26 @@
+# Ignorar arquivos de dados processados nesta pasta e subpastas
+# Mantemos este .gitignore e um README/.gitkeep opcionais
+*
+!.gitignore
+!README.md
+!.gitkeep
+
+# Ignorar arquivos de dados comuns (CSV, Excel, etc.)
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.json
+*.zip
+*.7z
+*.sql
+
+# Ignorar diretórios gerados (ex.: powerbi_model com muitos CSVs)
+powerbi_model/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Observação: para incluir deliberadamente um arquivo (ex.: um CSV de exemplo), remova a entrada
+# ou adicione uma exceção como: !powerbi_model/EXEMPLO.csv

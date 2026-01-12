@@ -1,0 +1,23 @@
+# Ignorar todos os arquivos de dados nesta pasta
+# Mantemos este .gitignore e um README/.gitkeep opcionais
+*
+!.gitignore
+!README.md
+!.gitkeep
+
+# Ignorar arquivos comuns de dados explicitamente (redundante com a regra *)
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.json
+*.zip
+*.7z
+*.sql
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Como: para forçar o tracking de um arquivo específico, adicione uma exceção. Exemplo:
+# !dados/arquivo_de_exemplo.csv

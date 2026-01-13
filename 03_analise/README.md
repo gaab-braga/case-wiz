@@ -21,14 +21,14 @@ A construção de dados para produção está no `dre_pipeline/`.
 ### 💰 Receitas (2025)
 - **Receita Bruta Total:** R$ 67,6M (Realizado) vs R$ 68,4M (Orçado)
 - **SERVICE > SALES:** Serviços representam ~60% da receita
-- **Top Unidades:** SJC, SAO, BSB lideram em faturamento
+- **Principais unidades:** SJC, SAO e BSB lideram em faturamento
 
 ### 📉 Despesas (2025)
 - **Despesas Realizadas:** R$ 41,6M vs R$ 48,8M orçadas
 - **Economia:** R$ 7,2M (~15% abaixo do orçado)
-- **Top Pacotes:** Custos com Pessoal (~40%), Infraestrutura (~20%)
+- **Principais pacotes:** Custos com pessoal (~40%), infraestrutura (~20%)
 
-### 📊 DRE - Indicadores Chave
+### 📊 DRE — Indicadores-chave
 | KPI | Valor | Meta | Status |
 |-----|-------|------|--------|
 | Margem EBITDA | 34,4% | 30%+ | ✅ Acima |
@@ -67,7 +67,7 @@ A análise identificou a seguinte estrutura Star Schema:
 
 ## ⚠️ Observações Importantes
 
-1. **Estes notebooks são apenas para EDA** - não geram dados para Power BI
+1. **Estes notebooks destinam-se apenas a análises exploratórias (EDA)** — não geram os conjuntos finais de dados para o Power BI
 2. **Dados de produção** são gerados pelo `dre_pipeline/` 
 3. **Para reprocessar dados**, use: `python -m etl._05_run_pipeline`
 4. **CSVs finais** estão em: `02_dados_tratados/powerbi_model/`

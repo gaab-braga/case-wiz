@@ -111,7 +111,10 @@ docker-compose ps
 
 ```bash
 # Copie o arquivo de configuração de exemplo
+# Linux/Mac
 cp config.yml.example config.yml
+# Windows (PowerShell)
+Copy-Item -Path config.yml.example -Destination config.yml
 
 # Edite se necessário (credenciais padrão já funcionam com Docker)
 ```

@@ -98,8 +98,8 @@ RECEITA BRUTA                           R$ 67.629.718,14   (100,0%)
 ### 3.1 Diagnóstico
 
 ```
-⚠️ ALERTA: Margem EBITDA Março = 13,4% (Meta = 29,7%)
-🔍 CAUSA RAIZ: Provisão de PLR (Participação nos Lucros)
+⚠️ Alerta: Margem EBITDA em março = 13,4% (meta = 29,7%).
+🔍 Causa raiz: provisão de PLR (Participação nos Lucros).
 ```
 
 ### 3.2 Detalhamento
